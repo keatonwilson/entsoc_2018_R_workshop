@@ -3,11 +3,6 @@ title: "Starting with data"
 author: "Data Carpentry contributors"
 minutes: 20
 ---
-
-```{r, echo=FALSE, purl=FALSE, message = FALSE}
-source("setup.R")
-```
-
 ------------
 
 > ### Learning Objectives
@@ -54,14 +49,13 @@ that contains the survey data from figshare, and we will use `read.csv()` to
 load into memory the content of the CSV file as an object of class `data.frame`.
 
 ```{r, eval=FALSE, purl=TRUE}
-download.file("https://ndownloader.figshare.com/files/2292169",
-              "data/portal_data_joined.csv")
+download.file("https://raw.githubusercontent.com/keatonwilson/entsoc_2018_R_workshop/master/data/portal_data_joined.csv", destfile = "./portal_data_joined.csv")
 ```
 
 You are now ready to load the data:
 
 ```{r, eval=TRUE,  purl=FALSE}
-surveys <- read.csv("data/portal_data_joined.csv")
+surveys <- read.csv("portal_data_joined.csv")
 ```
 
 This statement doesn't produce any output because, as you might recall,
@@ -109,8 +103,6 @@ columns are vectors that all have the same length. Because columns are
 vectors, each column must contain a single type of data (e.g., characters, integers,
 factors). For example, here is a figure depicting a data frame comprising a
 numeric, a character, and a logical vector.
-
-![](./img/data-frame.svg)
 
 
 We can see this when inspecting the <b>str</b>ucture of a data frame
@@ -203,9 +195,9 @@ surveys[1, 1]
 # first element in the 6th column (as a vector)
 surveys[1, 6]   
 # first column of the data frame (as a vector)
-surveys[, 1]    
+#surveys[, 1]    
 # first column of the data frame (as a data.frame)
-surveys[1]      
+#surveys[1]      
 # first three elements in the 7th column (as a vector)
 surveys[1:3, 7] 
 # the 3rd row of the data frame (as a data.frame)
@@ -220,17 +212,17 @@ or decreasing order, test `1:10` and `10:1` for instance.
 You can also exclude certain indices of a data frame using the "`-`" sign:
 
 ```{r, purl=FALSE}
-surveys[, -1]          # The whole data frame, except the first column
+#surveys[, -1]          # The whole data frame, except the first column
 surveys[-c(7:34786), ] # Equivalent to head(surveys)
 ```
 
 Data frames can be subset by calling indices (as shown previously), but also by calling their column names directly:
 
 ```{r, eval = FALSE, purl=FALSE}
-surveys["species_id"]       # Result is a data.frame
-surveys[, "species_id"]     # Result is a vector
-surveys[["species_id"]]     # Result is a vector
-surveys$species_id          # Result is a vector
+#surveys["species_id"]       # Result is a data.frame
+#surveys[, "species_id"]     # Result is a vector
+#surveys[["species_id"]]     # Result is a vector
+#surveys$species_id          # Result is a vector
 ```
 
 In RStudio, you can use the autocompletion feature to get the full and correct names of the columns.
@@ -574,13 +566,13 @@ Now we apply this function to the surveys dataset. Create a character vector fro
 `surveys` using `paste()`:
 
 ```{r, purl=FALSE}
-paste(surveys$year, surveys$month, surveys$day, sep = "-")
+#paste(surveys$year, surveys$month, surveys$day, sep = "-")
 ```
 
 This character vector can be used as the argument for `ymd()`:
 
 ```{r, purl=FALSE}
-ymd(paste(surveys$year, surveys$month, surveys$day, sep = "-"))
+#ymd(paste(surveys$year, surveys$month, surveys$day, sep = "-"))
 ```
 
 The resulting `Date` vector can be added to `surveys` as a new column called `date`:
@@ -612,5 +604,3 @@ head(missing_dates)
 Why did these dates fail to parse? If you had to use these data for your
 analyses, how would you deal with this situation?
 
-```{r, child="_page_built_on.Rmd"}
-```
