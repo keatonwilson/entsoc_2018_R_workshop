@@ -3,13 +3,6 @@ title: Data visualization with ggplot2
 author: Data Carpentry contributors
 minutes: 60
 ---
-
-
-```{r setup, echo=FALSE, purl=FALSE}
-source("setup.R")
-surveys_complete <- read_csv(file = "data_output/surveys_complete.csv", col_types = cols())
-```
-
 ```{r, echo=FALSE, purl=TRUE}
 ### Data Visualization with ggplot2
 ```
@@ -36,8 +29,8 @@ library(tidyverse)
 If not still in the workspace, load the data we saved in the previous lesson.
 
 
-```{r load-data, eval=FALSE, purl=FALSE}
-surveys_complete <- read_csv("data_output/surveys_complete.csv")
+```{r, eval=TRUE, purl=FALSE}
+surveys_complete <- read_csv("https://raw.githubusercontent.com/keatonwilson/entsoc_2018_R_workshop/master/portal_data_joined.csv")
 ```
 
 ## Plotting with **`ggplot2`**
@@ -587,5 +580,3 @@ Note: The parameters `width` and `height` also determine the font size in the sa
 ##  https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf
 ```
 
-```{r, child="_page_built_on.Rmd"}
-```
