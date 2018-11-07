@@ -49,7 +49,7 @@ that contains the survey data from figshare, and we will use `read.csv()` to
 load into memory the content of the CSV file as an object of class `data.frame`.
 
 ```{r, eval=FALSE, purl=TRUE}
-download.file("https://raw.githubusercontent.com/keatonwilson/entsoc_2018_R_workshop/master/data/portal_data_joined.csv", destfile = "./portal_data_joined.csv")
+download.file("https://bit.ly/2JF82e0", destfile = "./portal_data_joined.csv")
 ```
 
 You are now ready to load the data:
