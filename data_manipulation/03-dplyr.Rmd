@@ -1,10 +1,12 @@
 ---
-title: Manipulating, analyzing and exporting data with tidyverse
-author: Data Carpentry contributors
+title: "Manipulating, analyzing and exporting data with tidyverse"
+author: "Data Carpentry contributors"
+output: pdf_document
 ---
 
 ```{r, echo=FALSE, purl=FALSE, message = FALSE}
-surveys <- read.csv("https://raw.githubusercontent.com/keatonwilson/entsoc_2018_R_workshop/master/data/portal_data_joined.csv")
+surveys <- read.csv("https://raw.githubusercontent.com/keatonwilson/entsoc_2018_R_workshop/master/portal_data_joined.csv")
+
 suppressWarnings(surveys$date <- lubridate::ymd(paste(surveys$year,
                                                       surveys$month,
                                                       surveys$day,
@@ -93,7 +95,7 @@ We'll read in our data using the `read_csv()` function, from the tidyverse packa
 
 
 ```{r, results = 'hide', purl = FALSE}
-surveys <- read_csv("https://raw.githubusercontent.com/keatonwilson/entsoc_2018_R_workshop/master/data/portal_data_joined.csv")
+surveys <- read_csv("https://raw.githubusercontent.com/keatonwilson/entsoc_2018_R_workshop/master/portal_data_joined.csv")
 
 ## inspect the data
 str(surveys)
